@@ -10,19 +10,14 @@ A lightweight and coherent programming language.
 
 ## Variables
 ```
-# defnition
-name: type
-# declaration
-name = x
-# initialisation
-name: type = x
-# or
-name := x
+x: int
+x = 1
+y: char = 'a' # type is optional
 ```
 
 ## Arithmetic operators
 ```
-p := ((a+b) * h) / 2
+p = ((a+b) * h) / 2
 ```
 
 ## Logical operators
@@ -49,46 +44,41 @@ i @ x {
 
 ## Bitwise operators
 ```
-x := (x << n) | (x >> (8-n))
+x = (x << n) | (x >> (8-n))
 ```
 
 ## Vectors
 ```
-x := [0 ... 10]
-x = x[x.len-1] + 1
+x = [0, 1, ['x', 'y']]
+x[x.len-1] = x[x.len-1] + ['z']
 ```
 
 ## Funtions
 ```
-# prototype
-name(): type
-name(arg1: int32, arg2: int32, arg3 = 10): type
-# initialisation
-name() := {
-  # code
-  return x
+f(a: int, b = 2): int # prototype
+f() = {
+  return a * b
 }
 ```
 
 ## Structures
 ```
 Name: OtherStructure {
-  field1 = 0;
-  _field2: uint32; # fields with underscore are private
+  field1 = 0
+  _field2: int # fields with underscore are private
   (field2: uint32) {
     # constructor
     field2 = self.field2
   }
 }
 
-# instance
 x: Name(10)
-y := Name(x.field1)
+y = Name(x.field1)
 ```
 
 ## Streams
 ```
 stdout <- "Hello World"
-stdin -> x # read from stdin to x
-file('asdf.txt') <- 2*16: str
+stdin -> buf
+file('asdf.txt') <- 2*16: str # x: y is cast x to y type
 ```
